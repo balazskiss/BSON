@@ -1,12 +1,15 @@
-//
-// Created by joannis on 27-1-16.
-//
-
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
     name: "BSON",
+    products: [
+        .library(name: "BSON", targets: ["BSON"])
+    ],
     dependencies: [
-        .Package(url: "https://github.com/OpenKitten/KittenCore.git", majorVersion: 0, minor: 2),
+    	.package(url: "https://github.com/OpenKitten/KittenCore.git", from: "0.2.4-swift5")
+    ],
+    targets: [
+        .target(name: "BSON", dependencies: ["KittenCore"])
     ]
 )
